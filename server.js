@@ -49,13 +49,19 @@ app.post('/index', (req, res) => {
     res.redirect('/index')
 })
 
-//edit a book 
+//update a book 
+
+app.put('/index/:indexNo', (req, res) => {   
+    const book = data[req.params.indexNo]
+	book.remarks = req.body.remarks 
+	res.redirect('/index/'); //redirect to the index page
+})
 
 app.get('/index/:indexNo/edit', (req, res) => {
-    let indexNo = req.params.indexNo
-    let book = data[indexNo];
     res.render('edit.ejs', {
-        book: book,
+        indexNo: req.params.indexNo,
+        book: data[req.params.indexNo],
+        
     })
 })
 
