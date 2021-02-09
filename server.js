@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const methodOverride = require('method-override');
 
 const app = express()
-const data = require('./modules/data.js')
+const data = require('./models/data.js')
 
 /* Middleware */ 
 app.use(express.static('public'));
@@ -27,7 +27,7 @@ app.get('/index', (req, res) => {
     })
 })
 
-//show 
+//SHOW 
 
 app.get('/index/:indexNo', (req,res) => {
     const book = data[req.params.indexNo]; 
@@ -38,18 +38,24 @@ app.get('/index/:indexNo', (req,res) => {
     })
 })
 
-//routes to add a book
+// ADD
 
 app.get('/new', (req, res) => {
     res.render('new.ejs')
 })
 
 app.post('/index', (req, res) => {
-    data.push(req.body); 
+    let addedBook = {}
+    addedBook.title=req.body.title; 
+    addedBook.subtitle = req.body.subtitle; 
+    addedBook.author = req.body.author; 
+    addedBook.ISBN = req.body.ISBN; 
+    addedBook.remarks = req.body.remarks
+    data.push(addedBook); 
     res.redirect('/index')
 })
 
-//update a book 
+//UPDATE
 
 app.put('/index/:indexNo', (req, res) => {   
     const book = data[req.params.indexNo]
@@ -65,7 +71,7 @@ app.get('/index/:indexNo/edit', (req, res) => {
     })
 })
 
-//delete a book
+//DELETE
 
 app.delete('/index/:indexNo', (req, res) => {
     data.splice(req.params.indexNo, 1); 
