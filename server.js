@@ -79,13 +79,14 @@ app.get('/new', (req, res) => {
 app.post('/index', (req, res) => {
     let addedBook = {}
     addedBook.title=req.body.title; 
-    addedBook.subtitle = req.body.subtitle; 
     addedBook.author = req.body.author; 
     addedBook.ISBN = req.body.ISBN; 
     addedBook.remarks = req.body.remarks
-    data.push(addedBook); 
-    res.redirect('/index')
-})
+    Books.create(addedBook, (error, book) => {
+        res.redirect('/index')
+    })
+    })
+    
 
 //UPDATE
 
