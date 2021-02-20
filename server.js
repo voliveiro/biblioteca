@@ -43,13 +43,13 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
 db.on('connected', () => console.log('mongo connected: ', mongoURI))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
-//add seed data
+// add seed data
 
-// app.get('/index/seed', (req, res) => {
-//     Books.create(data, (err, data) => {
-//         res.redirect('/');
-//     })
-// });
+app.get('/index/seed', (req, res) => {
+    Books.create(data, (err, data) => {
+        res.redirect('/');
+    })
+});
 
 //show all books
 
@@ -80,36 +80,55 @@ app.get('/new', (req, res) => {
     res.render('new.ejs')
 })
 
-app.post('/index', (req, res) => {
-    Books.create(req.body, (error, book) => {
-        res.redirect('/index')
-    })
-    })
+app.get ( '/:id/edit' , ( req , res ) => {
+    Books.findById( req.params.id , ( err , book ) => {
+          if ( err ) { console.log ( err ); }
+          res.render ( 'edit.ejs' , { book : book }
+        );
+    });
+  });
     
+//edit book
 
-//UPDATE
+app.get ( '/:id/edit' , ( req , res ) => {
+Books.findById( req.params.id , ( err , book ) => {
+        if ( err ) { console.log ( err ); }
+        res.render ( 'edit.ejs' , { book : book }
+    );
+});
+});
 
-app.put('/index/:indexNo', (req, res) => {   
-    const book = data[req.params.indexNo]
-    const remarksText = req.body.remarks
-	book.remarks = '<p>' + remarksText.replace(/\n/g, "</p>\n<p>") + '</p>'
-	res.redirect('/index/'); //redirect to the index page
-})
+app.put( '/:id' , ( req , res ) => {
+    console.log(req.body)
+    const updatedremark = Books.findByIdAndUpdate( req.params.id, {$set: {remarks: req.body.remarks}}, ( err , book ) => {
+        // book.remarks = req.body.remarks; 
+        console.log (book)
+      if ( err ) { console.log( err ); }
+      res.redirect ( '/' + book.id );
+    });
+   
+  });
 
-app.get('/index/:indexNo/edit', (req, res) => {
-    res.render('edit.ejs', {
-        indexNo: req.params.indexNo,
-        book: data[req.params.indexNo],
-        
-    })
-})
+
+
+//Search page
+
+app.get('/search', (req, res) => {
+    Books.find({}, (error, books) => {
+        res.render('index.ejs', {
+            Books: books
+        });
+    });
+});
 
 //DELETE
 
-app.delete('/index/:indexNo', (req, res) => {
-    data.splice(req.params.indexNo, 1); 
-    res.redirect('/index');
-})
+app.delete (  '/:id' , ( req , res ) => {
+    Books.findByIdAndRemove( req.params.id , ( err , product ) => {
+      if ( err ) { console.log( err ); }
+      res.redirect ( '/index' );
+    });
+  });
 
 app.listen(process.env.PORT, () => {
     console.log ("biblioteca on port 3000")

@@ -8,3 +8,14 @@ a {
 a:hover {
     color: rgb(150, 213, 233); 
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px; 
+}
+
+
