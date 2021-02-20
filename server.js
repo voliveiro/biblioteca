@@ -9,8 +9,6 @@ const mongoose = require('mongoose');
 const mongoURI = process.env.DB_URI ||'mongodb://localhost:27017/'+ 'books'
 const db = mongoose.connection
 
-const authorsController = require('./controllers/authors.js');
-
 
 app.use(express.static('public'));
 app.use(express.json()); // for parsing application/json
@@ -21,7 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/authors', authorsController);
+ 
 
  
 
@@ -47,7 +45,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 app.get('/index/seed', (req, res) => {
     Books.create(data, (err, data) => {
-        res.redirect('/');
+        res.redirect('/index');
     })
 });
 
