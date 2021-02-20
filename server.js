@@ -43,11 +43,11 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 // add seed data
 
-app.get('/index/seed', (req, res) => {
-    Books.create(data, (err, data) => {
-        res.redirect('/index');
-    })
-});
+// app.get('/index/seed', (req, res) => {
+//     Books.create(data, (err, data) => {
+//         res.redirect('/index');
+//     })
+// });
 
 //show all books
 
@@ -60,6 +60,18 @@ app.get('/index', (req, res) => {
     });
 });
 
+// ADD
+
+app.get('/new', (req, res) => {
+  res.render('new.ejs')
+})
+
+app.post ( '/index' , ( req , res ) => {
+  Books.create( req.body , ( err , book ) => {
+    // if ( err ) { res.send ( err ) ; } else {
+      res.redirect( '/index');
+    })
+  });
 
 //SHOW 
 
@@ -72,19 +84,8 @@ app.get('/:id', (req,res) => {
     })
 })
 
-// ADD
 
-app.get('/new', (req, res) => {
-    res.render('new.ejs')
-})
-
-app.get ( '/:id/edit' , ( req , res ) => {
-    Books.findById( req.params.id , ( err , book ) => {
-          if ( err ) { console.log ( err ); }
-          res.render ( 'edit.ejs' , { book : book }
-        );
-    });
-  });
+ 
     
 //edit book
 
@@ -98,9 +99,8 @@ Books.findById( req.params.id , ( err , book ) => {
 
 app.put( '/:id' , ( req , res ) => {
     console.log(req.body)
-    const updatedremark = Books.findByIdAndUpdate( req.params.id, {$set: {remarks: req.body.remarks}}, ( err , book ) => {
+    Books.findByIdAndUpdate( req.params.id, {$set: {remarks: req.body.remarks}}, ( err , book ) => {
         // book.remarks = req.body.remarks; 
-        console.log (book)
       if ( err ) { console.log( err ); }
       res.redirect ( '/' + book.id );
     });
@@ -109,15 +109,7 @@ app.put( '/:id' , ( req , res ) => {
 
 
 
-//Search page
 
-app.get('/search', (req, res) => {
-    Books.find({}, (error, books) => {
-        res.render('index.ejs', {
-            Books: books
-        });
-    });
-});
 
 //DELETE
 
