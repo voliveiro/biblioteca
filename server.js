@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const mongoURI = process.env.DB_URI ||'mongodb://localhost:27017/'+ 'books'
 const db = mongoose.connection
 
+const authorsController = require('./controllers/authors.js');
+
 
 app.use(express.static('public'));
 app.use(express.json()); // for parsing application/json
@@ -19,6 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/authors', authorsController);
 
  
 
@@ -50,6 +53,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 //show all books
 
+
 app.get('/index', (req, res) => {
     Books.find({}, (error, books) => {
         res.render('index.ejs', {
@@ -61,12 +65,12 @@ app.get('/index', (req, res) => {
 
 //SHOW 
 
-app.get('/index/:indexNo', (req,res) => {
-    const book = data[req.params.indexNo]; 
-    res.render('show.ejs', {
-        books: data, 
-        book: book,
-
+app.get('/:id', (req,res) => {
+    Books.findById(req.params.id, (err, book) => {
+        res.render('show.ejs', {
+            book: book, 
+    })
+   
     })
 })
 
@@ -77,12 +81,7 @@ app.get('/new', (req, res) => {
 })
 
 app.post('/index', (req, res) => {
-    let addedBook = {}
-    addedBook.title=req.body.title; 
-    addedBook.author = req.body.author; 
-    addedBook.ISBN = req.body.ISBN; 
-    addedBook.remarks = req.body.remarks
-    Books.create(addedBook, (error, book) => {
+    Books.create(req.body, (error, book) => {
         res.redirect('/index')
     })
     })
@@ -92,7 +91,8 @@ app.post('/index', (req, res) => {
 
 app.put('/index/:indexNo', (req, res) => {   
     const book = data[req.params.indexNo]
-	book.remarks = req.body.remarks 
+    const remarksText = req.body.remarks
+	book.remarks = '<p>' + remarksText.replace(/\n/g, "</p>\n<p>") + '</p>'
 	res.redirect('/index/'); //redirect to the index page
 })
 

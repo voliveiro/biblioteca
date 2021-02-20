@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     
      
+ 
         <span class="field-text"> Title: </span> <%=book.title%> <br> 
         <span class="field-text"> Sub-Title: </span><%=book.subtitle%> <br> 
         <span class="field-text"> Author: </span><%=book.author%> <br> 
         <span class="field-text"> ISBN Number: </span><%=book.ISBN%> <br> 
         <span class="field-text"> Remarks: </span><%=book.remarks%> 
     
-        <%const indexNo=books.indexOf(book)%>
-        
-        <form action="/index/<%= indexNo %>?_method=DELETE" method="POST"> 
+        <div class="edit-btn">
+            
+            <a href="/index/<%=book._id%>/edit">
+                <button> Edit Record</button>
+            </a>
+        </div>
+        <div class="delete-btn"> 
+            <form action="/index/<%=book._id %>?_method=DELETE" method="POST"> 
 
-            <input type="submit" value="DELETE"/ > 
-        </form>
+                <input type="submit" value="DELETE"/ > 
+            </form>
+        </div>
+
 </body>
 </html>

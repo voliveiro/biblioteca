@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     
     <form action="/index/<%=indexNo%>?_method=PUT" method="POST">
-        
-        <label for="remarks"> Remarks </label>
-        <input type="text" name="remarks" id="remarks"/> 
+        <form action="/index" method="POST">
 
-        <input type="submit" value="Update"> 
+            <label for="title"> Title</label>
+            <input type="text" name="title" id="title"/> 
+    
+            <label for="author">Author </label>
+            <input type="text" name="author" id="author"/> 
+            
+            <label for="ISBN">ISBN Number</label>
+            <input type="number" name="ISBN" id="ISBN">
+            
+            <label for="remarks"> Remarks </label>        
+            <textarea name="remarks" id="remarks"> </textarea>
+
+        <input type="submit" value="Update" onclick=store()> 
 
 
 
     </form>
     
+    <script> 
+
+        const store = () => {
+            let remarksText = document.getElementById('remarks').value; 
+            let remarksTexttoStore = '<p>' + remarksText.replace(/\n/g, "</p>\n<p>") + '</p>';
+        }
+
+    </script> 
 </body>
 </html>
