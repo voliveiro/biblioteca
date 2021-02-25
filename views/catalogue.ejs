@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href= "/assets/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    
+   <header>
+       <h1> Biblioteca</h1>
+
+       <h2> Catalogue</h2>
+   </header>
+
+   <main> 
+    <ul> 
+        <% Books.forEach(element => { %> 
+            <li>    
+            <a href="/<%=element._id%>">
+            <%=element.title%> <br> 
+            </a>
+            <%=element.author%>  <br> 
+            <%=element._id%> 
+            </li>
+        <%})%>
+        </ul> 
+    </main>
+
+
+    <footer> 
+
+    <a href="/new"> Add new book</a>
+
+    </footer>
+
+</body>
+</html>

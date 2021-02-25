@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%-include('./partials/head.ejs') -%>
-    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
     
-    <div class="container">
-        <h1>
-            <% if (currentUser) { %>
-                Welcome <%= currentUser.username %>!
-                <h2>
-                  <a class="waves-effect waves-light btn" href="/app">Join the party!</a>
-                </h2>
+
+    <section> 
+
+        <h2> Log In </h2>
+
+        <div class="container">
+            <h1>
+                <% if (currentUser) { %>
+                    Welcome <%= currentUser.username %>!
+                    <h2>
+                      <a  href="/index">Go to catalogue</a>
+                    </h2>
             </h1>
             <form action="/sessions?_method=DELETE" method="post">
               <input type="submit" name="" value="Logout" class="waves-effect waves-light btn">
@@ -23,9 +30,8 @@
             <h3>or</h3>
             <a href="/sessions/new" class="waves-effect waves-light btn">Log In</a>
             <% } %>
-    </div>
-
-   
+          </div>
+    </section>
 
 </body>
 </html>
