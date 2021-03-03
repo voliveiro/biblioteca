@@ -11,6 +11,7 @@ const Books = require('./models/books.js')
 
 const userController = require('./controllers/users.js')
 const sessionsController = require('./controllers/sessions.js')
+const appController = require('./controllers/app.js')
 
 const mongoose = require('mongoose');
 const mongoURI = process.env.DB_URI ||'mongodb://localhost:27017/'+ 'books'
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
   
 app.use('/users', userController)
 app.use('/sessions', sessionsController)
+app.use('/app', appController)
 
 //Database
 
@@ -81,13 +83,13 @@ app.get('/app', isAuthenticated, (req, res)=>{
     }
 })
 
-app.get('/home', isAuthenticated, (req,res) => {
-    if(req.session.currentUser){
-        res.render('home.ejs', {
-            currentUser: req.session.currentUser
-        });
-    }
-})
+// app.get('/home', isAuthenticated, (req,res) => {
+//     if(req.session.currentUser){
+//         res.render('home.ejs', {
+//             currentUser: req.session.currentUser
+//         });
+//     }
+// })
 
 
 // Show user catalogue 
@@ -127,54 +129,7 @@ app.get('/catalogue/:bookid', isAuthenticated, (req,res) => {
 
 
 
-//ADD A NEW BOOK
 
-app.get ( '/:id/add' , ( req , res ) => {
-    User.findById( req.params.id , ( err , user ) => {
-        if ( err ) { 
-            console.log ( err ); 
-        }
-        console.log (user)
-        res.render ( 'newadd.ejs' , { user : user }
-    );
-    });
-});
-    
-
-app.post( '/home', isAuthenticated, ( req , res ) => {
-    let newbook = {}; 
-    newbook.author = req.body.author; 
-    newbook.title = req.body.title;
-    newbook.notes = req.body.notes; 
-    newbook.owner = req.session.currentUser._id; 
-    Books.create(newbook, (err , book) => { 
-        console.log (newbook)
-        res.redirect ( `home` );
-    });    
-});
-
-//edit user info 
-
-app.get('/edituserinfo/:id', (req, res) => {
-    User.findById( req.params.id , ( err , user ) => {
-        if ( err ) { 
-            console.log ( err ); 
-        }
-        console.log (user)
-        res.render ( 'edituser.ejs' , { user : user }
-    );
-    });
-})
-
-app.put( '/home' , ( req , res ) => {
-    User.findByIdAndUpdate( req.params.id, {$set: {username: req.body.username}}, ( err , user ) => { 
-        if ( err ) { 
-            console.log( err ); 
-        }
-        console.log (user)
-        res.redirect ( '/home' );
-    });
-});
 
 //edit book remarks
 
