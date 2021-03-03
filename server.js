@@ -83,14 +83,7 @@ app.get('/app', isAuthenticated, (req, res)=>{
     }
 })
 
-// app.get('/home', isAuthenticated, (req,res) => {
-//     if(req.session.currentUser){
-//         res.render('home.ejs', {
-//             currentUser: req.session.currentUser
-//         });
-//     }
-// })
-
+ 
 
 // Show user catalogue 
 

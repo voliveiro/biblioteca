@@ -49,5 +49,21 @@ app.post( '/home', isAuthenticated, ( req , res ) => {
 });
 
 
+// Show user catalogue 
+
+app.get('/catalogue', isAuthenticated, (req,res) => {
+    if(req.session.currentUser){
+        Books.find( {owner: req.session.currentUser._id} , ( err , books ) => {
+            if ( err ) { 
+                console.log ( err ); 
+            }
+            res.render ( 'newcatalogue.ejs' , { 
+                Books: books, 
+                user: req.session.currentUser, 
+            }
+        );
+        });
+    }
+})
 
 module.exports = app; 
