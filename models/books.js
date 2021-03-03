@@ -1,13 +1,13 @@
-const mongoose = require('mongoose');  
-const Schema = mongoose.Schema;  
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const bookSchema = new Schema({
-    title: String, 
-    author: String, 
-    ISBN: Number,
-    remarks: String, 
-
+const bookSchema = Schema({
+  author: String,
+  title: String, 
+  notes: String, 
+  owner: String, 
 })
 
-const Books = mongoose.model('books', bookSchema)
-module.exports = Books
+const Book = mongoose.model('Book', bookSchema)
+
+module.exports = Book
