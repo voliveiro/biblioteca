@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs') -%>
+</head>
+<body>
+    
+    <header> 
+        <%-include('./partials/header.ejs') -%>
+    </header>
+
+    <form  action="/home?_method=PUT" method="POST">
+
+        <label for="username"> New Username </label>
+        <input type="text" name="username" id="username"/> 
+
+        <input type="submit" value="Update" > 
+
+
+    </form>
+
+</body>
+</html>

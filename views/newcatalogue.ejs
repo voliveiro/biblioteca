@@ -12,21 +12,21 @@
     
     </header>
 
-    <h2>   <%=user.username%>'s Catalogue <br> </h2>
+    <h2>   Catalogue  </h2>
     
     <main> 
 
         <ul> 
-        <%user.userbooks.forEach(element => { %>
+        <%Books.forEach(element => { %>
             <li> 
                 <section class="book-info-section"> 
                     <p class="li-elements"> <span> Author: </span><%=element.author%> </p>
-                    <%let allbooks = user.userbooks %> 
                     
-                    <p class="li-elements"><span> Title: </span> <a href="/<%=user._id%>/catalogue/<%=allbooks.indexOf(element) %>"> <%=element.title%> </p>
+                    <p class="li-elements"><span> Title: </span> <%=element.title%> </p>
                     </a> 
                     <p class="li-elements"> <span> Notes: </span> <%=element.notes%> </p>
                     <p class="li-elements"> <span> Book ID: </span> <%=element._id%> </p>
+                    <a href="/catalogue/<%=element._id%>"> See book</a>
                 
             <li> 
 
@@ -34,6 +34,6 @@
         </ul>
     </main>
 
-    <a href="/"> Return to main page </a>
+    <a href="/home"> Return to home page </a>
 </body>
 </html>

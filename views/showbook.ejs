@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs') -%>
+</head>
+<body>
+    
+    <header> 
+        <%-include('./partials/header.ejs') -%>
+    </header>
+    <ul> 
+        <li> <%=book.author%> </li>
+        <li> <%=book.title%> </li>
+        <li> <%=book.notes%> </li>
+        <li class="bookidval"> <%=book._id%></li>
+    </ul>
+
+    
+    
+    <ul>
+        <li> 
+            <a href="/<%=bookid%>/edit"> Edit book notes </a> 
+        </li>
+        <li>
+            <a href="/catalogue"> Return to user catalogue</a>
+        </li> 
+    
+    </ul>
+
+    
+    
+</body>
+</html>

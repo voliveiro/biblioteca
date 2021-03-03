@@ -8,6 +8,17 @@
 </head>
 <body>
     
-    <h1> Welcome to your personal home library</h1>
+    <h1> Editing "<%=book.title%>"</h1>
+
+    <form  action="/catalogue?_method=PUT" method="POST">
+
+        <label for="notes"> Notes </label>
+        <input type="text" name="notes" id="notes"/> 
+
+        <input type="submit" value="Submit"> 
+
+
+
+    </form>
 </body>
 </html>

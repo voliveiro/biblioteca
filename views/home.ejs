@@ -10,20 +10,15 @@
   </header>
     
     
-    <h1>
-        <% if(currentUser) { %>
-          Welcome <%=currentUser.username%>! </h1>
+    <h1> Welcome <%=currentUser.username%>! </h1>
 
           <main> 
 
-           <a href="/home"> User home page </a>
+           <a  href="/<%=currentUser._id%>/add/">Add a book</a> 
+           <a  href="/catalogue/">See catalogue</a>
+           <a href="/edituserinfo/<%=currentUser._id%>">Edit user info</a>
           </main>
-        <% } else { %>
-          <h2>Please </h2>
-          <a href="/users/new">Sign Up</a></h2>
-          <h3>or</h3>
-          <a href="/sessions/new">Log In</a>
-        <% } %>
+    
  
  
 
