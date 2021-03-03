@@ -20,4 +20,29 @@ users.post('/', (req, res) => {
     });
 });
 
+
+
+// edit user info 
+
+users.get('/edituserinfo/:id', (req, res) => {
+    User.findById( req.params.id , ( err , user ) => {
+        if ( err ) { 
+            console.log ( err ); 
+        }
+        console.log (user)
+        res.render ( 'edituser.ejs' , { user : user }
+    );
+    });
+})
+
+users.put( './home' , ( req , res ) => {
+    User.findByIdAndUpdate( req.params.id, {$set: {username: req.body.username}}, ( err , user ) => { 
+        if ( err ) { 
+            console.log( err ); 
+        }
+        console.log (user)
+        res.redirect ( './home' );
+    });
+});
+
 module.exports = users;
