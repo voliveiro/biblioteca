@@ -3,10 +3,22 @@ body {
 }
 header {
     background: #2B4162; 
-    padding-left: 20px; 
     display: flex; 
-    flex-direction: row; 
-    justify-content: space-between;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+}
+@media screen and (min-width: 600px) {
+    header {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between; 
+        padding-left: 20px; 
+        padding-right: 20px; 
+
+    }
 }
 
 header h1 {
@@ -17,17 +29,32 @@ header h1 {
 nav {
     display: flex; 
     justify-content: space-around;
+    flex-direction: column; 
     align-items: center;  
     width: 20%; 
+    margin-top: -10px; 
+}
+
+@media screen and (min-width: 600px) {
+    
+    nav {
+        display: flex; 
+        justify-content: space-around;
+        flex-direction: row; 
+        align-items: center;  
+        width: 20%; 
+        margin-top: -10px; 
+    }
 }
 
 nav a {
     text-decoration: none; 
+    margin-top: 10px; 
 }
 
 .navlinks {
     color: #fefafe; 
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', serif
 }
 
 main {
