@@ -11,25 +11,24 @@
         <%-include('./partials/header.ejs') -%>
     
     </header>
-
-    <h2>   Catalogue  </h2>
     
     <main> 
 
+        <h2>   Catalogue  </h2>
+
         <ul> 
         <%Books.forEach(element => { %>
-            <li> 
+            <li class="catalogue-li"> 
                 <section class="book-info-section"> 
                     <p class="li-elements"> <span> Author: </span><%=element.author%> </p>
                     
                     <p class="li-elements"><span> Title: </span> <%=element.title%> </p>
                     </a> 
-                    <p class="li-elements"> <span> Notes: </span> <%=element.notes%> </p>
-                    <p class="li-elements"> <span> Book ID: </span> <%=element._id%> </p>
+                     
                     <a href="/app/catalogue/<%=element._id%>"> See book</a>
                     
                 
-            <li> 
+                </li> 
 
         <%})%> 
         </ul>

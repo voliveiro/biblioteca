@@ -10,26 +10,23 @@
   </header>
     
 
-  <div class="container">
-    <h1>Create User</h1>
-    <div class="row">
-        <form class="col s12" action="/users" method="POST">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Placeholder" id="username" type="text" class="validate" name="username" required>
-            <label for="username">User Name</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate" name="password" required>
-            <label for="password">Password</label>
-          </div>
-        </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          
-        </button>
-      </form>
-    </div>
+  <main class="account-main">
+    <div class="account-form-container"> 
+      <h1>Create an Account</h1>
+      <form class="col s12" action="/users" method="POST">
+        <section class="form-row-field" >
+          <label for="username">User Name</label>
+          <input id="username" type="text" class="validate" name="username" required>
+        </section>
+        <section class="form-row-field" >
+          <label for="password">Password</label>
+          <input id="password" type="password" class="validate" name="password" required>    
+        </section>
+      <button class="form-btn" type="submit" name="action">Submit
+        
+      </button>
+        </form>
+       </div>
+    </main>
 </body>
 </html>

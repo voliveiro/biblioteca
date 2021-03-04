@@ -9,19 +9,17 @@
     <%-include('./partials/header.ejs') -%>
   </header>
     
-    
-    <h1>
-        <% if(currentUser) { %>
-          Welcome <%=currentUser.username%>! 
-    </h1>
-          <main> 
-
+    <main> 
+      <h1>
+          <% if(currentUser) { %>
+            Welcome <%=currentUser.username%>! 
+      </h1>
+          
             <div id="app-resources"> 
 
               <a href="/app/home"> User home page </a>
 
             </div> 
-
 
             <div id="nytapi-div"> 
 
@@ -30,30 +28,31 @@
 
             </div>
 
-          </main>
+          
 
 
         <% } else { %>
 
           <section class="entry-section"> 
 
-            <div class="container"> 
+            <div class="container-a"> 
           
-            <a href="/users/new">
+            <a class="entrybtn-a" href="/users/new">
               <div class="entrybtn"> 
                 <p> Sign Up </p>
               </div>
             </a>
+            </div>
 
-            <h3>or</h3>
-
-            <a href="/sessions/new">
+            <div class="container-a"> 
+            <a class="entrybtn-a" href="/sessions/new">
               <div class="entrybtn"> 
                 <p> Log In </p>
               </div>
             </a>
           </div>
         </section>
+      </main>
 
         <% } %>
  
