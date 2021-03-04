@@ -16,8 +16,29 @@
 
           <main> 
 
-           <a href="/app/home"> User home page </a>
+            <div id="app-resources"> 
+
+              <h2> </h2>
+
+              <a href="/app/home"> User home page </a>
+
+            </div> 
+
+
+            <div id="nytapi-div"> 
+
+              <div class="" id="fiction"> </div>
+              <div class="" id="nonfiction"></div>
+
+            </div>
+
+          
+          
+
+          
           </main>
+
+
         <% } else { %>
           <h2>Please </h2>
           <a href="/users/new">Sign Up</a></h2>
@@ -32,5 +53,89 @@
         <form action="/sessions?_method=DELETE" method="POST">
             <input type="submit" value="Logout" class="waves-effect waves-light btn"/>
         </form>
+
+  <script> 
+  
+  $(() => {
+
+    const h2 = $('<h2>').html("NYT Top Hard Cover Fiction")
+    $('#fiction').append(h2)
+
+        const promise = $.ajax({
+              url: "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=AEkLRlfzOlHMjU5FtqUiXX86gbGc8MjA"
+              });
+
+              promise.then (
+                  (data) => {
+                      const hardcoverfiction = data["results"]["books"]
+                      console.log (hardcoverfiction)
+
+                      for (item of hardcoverfiction) {
+                        let book = {}
+                        book.author = item.author; 
+                        let bookauthor = $('<p>').html(book.author)
+              
+                        book.title = item.title;
+                        
+                        book.amazon = item.amazon_product_url
+                        let bookamazon = $('<a>').attr("href", `${book.amazon}`)
+                        bookamazon.html(`${book.title}`)
+
+                        console.log (book)
+
+                        let eachbookdiv = $('<div>').addClass('eachbookdiv')
+           
+                        eachbookdiv.append(bookamazon)
+                        eachbookdiv.append(bookauthor)
+                        
+                        $('#fiction').append(eachbookdiv)
+
+
+                      }
+
+                  }
+              )
+    
+    const h2b = $('<h2>').html("NYT Top Hard Cover Non-Fiction")
+    $('#nonfiction').append(h2b)
+
+        const promise2 = $.ajax({
+              url: "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=AEkLRlfzOlHMjU5FtqUiXX86gbGc8MjA"
+              });
+
+              promise2.then (
+                  (data) => {
+                      const hardcoverfiction = data["results"]["books"]
+                      console.log (hardcoverfiction)
+
+                      for (item of hardcoverfiction) {
+                        let book = {}
+                        book.author = item.author; 
+                        let bookauthor = $('<p>').html(book.author)
+              
+                        book.title = item.title;
+                        
+                        book.amazon = item.amazon_product_url
+                        let bookamazon = $('<a>').attr("href", `${book.amazon}`)
+                        bookamazon.html(`${book.title}`)
+
+                        console.log (book)
+
+                        let eachbookdiv = $('<div>').addClass('eachbookdiv')
+           
+                        eachbookdiv.append(bookamazon)
+                        eachbookdiv.append(bookauthor)
+                        
+                        $('#nonfiction').append(eachbookdiv)
+
+
+                      }
+
+                  }
+              )
+               
+
+    })
+    </script>
 </body>
 </html>
