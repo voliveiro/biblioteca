@@ -4,12 +4,24 @@
     <%-include('./partials/head.ejs') -%>
 </head>
 <body>
-    
+
     <header> 
+
         <%-include('./partials/header.ejs') -%>
     </header>
+    
+    <h1> Editing "<%=book.title%>"</h1>
+    <h2> ID: <%=bookID%> </h2>
 
-    <%=book.title%> 
+    <form  action="<%=bookID%>?_method=PUT" method="POST">
 
+        <label for="notes"> Notes </label>
+        <input type="text" name="notes" id="notes"/> 
+
+        <input type="submit" value="Submit"> 
+
+
+
+    </form>
 </body>
 </html>
