@@ -24,13 +24,13 @@ app.get('/home', isAuthenticated, (req,res) => {
 
 //add a new book
 
-app.get ( '/:id/add' , ( req , res ) => {
+app.get ( '/:id/add', isAuthenticated, ( req , res ) => {
     User.findById( req.params.id , ( err , user ) => {
         if ( err ) { 
             console.log ( err ); 
         }
         console.log (user)
-        res.render ( 'newadd.ejs' , { user : user }
+        res.render ( 'add.ejs' , { user : user }
     );
     });
 });
@@ -57,7 +57,7 @@ app.get('/catalogue', isAuthenticated, (req,res) => {
             if ( err ) { 
                 console.log ( err ); 
             }
-            res.render ( 'newcatalogue.ejs' , { 
+            res.render ( 'catalogue.ejs' , { 
                 Books: books, 
                 user: req.session.currentUser, 
             }
@@ -65,5 +65,70 @@ app.get('/catalogue', isAuthenticated, (req,res) => {
         });
     }
 })
+
+
+// Show each book in user's catalogue
+
+app.get('/catalogue/:bookID', isAuthenticated, (req,res) => {
+    if(req.session.currentUser){
+        Books.findById( req.params.bookID , ( err , book ) => {
+            if ( err ) { 
+                console.log ( err ); 
+            }
+            res.render ( 'showbook.ejs' , { 
+                book: book, 
+                bookid: req.params.bookid, 
+                user: req.session.currentUser, 
+            }
+        );
+        });
+    }
+})
+
+
+//edit book notes
+
+
+app.get ( '/:bookID' , isAuthenticated, ( req , res ) => {
+    Books.findById( req.params.bookID , ( err , book ) => {
+        if ( err ) { 
+            console.log ( err ); 
+        }
+        console.log (book)
+        res.render ( 'editbook.ejs' , { 
+            book : book,
+            bookID: req.params.bookID,  
+        }
+    );
+    });
+});
+    
+
+app.put( '/:bookID' , ( req , res ) => {
+    Books.findByIdAndUpdate( req.params.bookID, {$set: {notes: req.body.notes}}, ( err, book) => { 
+        if ( err ) { 
+            console.log( err ); 
+        }
+        console.log(book)
+        res.redirect (`app/${req.params.id}` );
+    });
+    
+    });
+
+// delete book
+
+app.delete (  '/:bookID', isAuthenticated, ( req , res ) => {
+    Books.findByIdAndRemove( req.params.bookID , ( err , book ) => {
+        console.log(book)
+        if ( err ) { 
+          console.log( err ); 
+        } 
+        res.redirect ( '/catalogue' );
+        
+        
+    });
+  });
+
+
 
 module.exports = app; 

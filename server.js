@@ -83,74 +83,13 @@ app.get('/app', isAuthenticated, (req, res)=>{
     }
 })
 
+
  
 
-// Show user catalogue 
-
-app.get('/catalogue', isAuthenticated, (req,res) => {
-    if(req.session.currentUser){
-        Books.find( {owner: req.session.currentUser._id} , ( err , books ) => {
-            if ( err ) { 
-                console.log ( err ); 
-            }
-            res.render ( 'newcatalogue.ejs' , { 
-                Books: books, 
-                user: req.session.currentUser, 
-            }
-        );
-        });
-    }
-})
-
-// Show each book in user's catalogue
-
-app.get('/catalogue/:bookid', isAuthenticated, (req,res) => {
-    if(req.session.currentUser){
-        Books.findById( req.params.bookid , ( err , book ) => {
-            if ( err ) { 
-                console.log ( err ); 
-            }
-            res.render ( 'showbook.ejs' , { 
-                book: book, 
-                bookid: req.params.bookid, 
-                user: req.session.currentUser, 
-            }
-        );
-        });
-    }
-})
 
 
 
 
-
-//edit book remarks
-
-
-app.get ( '/:id/edit' , ( req , res ) => {
-    Books.findById( req.params.id , ( err , book ) => {
-        if ( err ) { 
-            console.log ( err ); 
-        }
-        console.log (book)
-        res.render ( 'neweditbook.ejs' , { 
-            book : book 
-        }
-    );
-    });
-});
-    
-
-app.put( '/catalogue' , ( req , res ) => {
-    Books.findByIdAndUpdate( req.params.id, {$set: {notes: req.body.notes}}, ( err , book ) => { 
-        if ( err ) { 
-            console.log( err ); 
-        }
-        console.log(book)
-        res.redirect ('/catalogue' );
-    });
-    
-    });
 
 
 app.listen(PORT, ()=>{
