@@ -83,14 +83,6 @@ app.get('/app', isAuthenticated, (req, res)=>{
     }
 })
 
-
- 
-
-
-
-
-
-
-
-app.listen(PORT, ()=>{
-    console.log('Listening');});
+app.listen(process.env.PORT, ()=>{
+    console.log('Listening');
+});
