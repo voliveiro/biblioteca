@@ -16,7 +16,8 @@ const isAuthenticated = (req, res, next) => {
 app.get('/home', isAuthenticated, (req,res) => {
     if(req.session.currentUser){
         res.render('home.ejs', {
-            currentUser: req.session.currentUser
+            currentUser: req.session.currentUser, 
+            APIKEY: process.env.APIKEY, 
         });
     }
 })
