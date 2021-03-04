@@ -29,6 +29,7 @@ nav a {
     color: #fefafe; 
     font-family: 'Merriweather', serif;
 }
+
 main {
     padding-left: 20px; 
     display: flex; 
@@ -57,3 +58,38 @@ form {
     flex-direction: column; 
 }
 
+.form-btn {
+    width: 20%;
+    margin-top: 10px; 
+    padding-top: 5px; 
+    padding-bottom: 5px;  
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke; 
+    background: #2B4162; 
+}
+
+.entry-section {
+   
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+  
+}
+
+.entry-section .container {
+    margin: 0 auto; 
+}
+.entrybtn {
+    width: 200px; 
+    border-radius: 5px; 
+    background: #2B4162; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    
+}
+
+.entrybtn p {
+    color: whitesmoke; 
+    font-size: 1.5rem; 
+}

@@ -21,7 +21,7 @@ app.get('/home', isAuthenticated, (req,res) => {
     }
 })
 
-
+/* NEW */ 
 //add a new book
 
 app.get ( '/:id/add', isAuthenticated, ( req , res ) => {
@@ -34,7 +34,8 @@ app.get ( '/:id/add', isAuthenticated, ( req , res ) => {
     );
     });
 });
-    
+
+/*CREATE*/ 
 
 app.post( '/home', isAuthenticated, ( req , res ) => {
     let newbook = {}; 
@@ -49,6 +50,7 @@ app.post( '/home', isAuthenticated, ( req , res ) => {
 });
 
 
+/*INDEX*/ 
 // Show user catalogue 
 
 app.get('/catalogue', isAuthenticated, (req,res) => {
@@ -66,7 +68,7 @@ app.get('/catalogue', isAuthenticated, (req,res) => {
     }
 })
 
-
+/* SHOW */ 
 // Show each book in user's catalogue
 
 app.get('/catalogue/:bookID', isAuthenticated, (req,res) => {
@@ -85,6 +87,7 @@ app.get('/catalogue/:bookID', isAuthenticated, (req,res) => {
     }
 })
 
+/*UPDATE */ 
 
 //edit book notes
 
@@ -110,10 +113,12 @@ app.put( '/:bookID' , ( req , res ) => {
             console.log( err ); 
         }
         console.log(book)
-        res.redirect (`app/${req.params.id}` );
+        res.redirect (`/app/catalogue/${req.params.bookID}` );
     });
     
     });
+
+/*DESTROY */ 
 
 // delete book
 
@@ -123,7 +128,7 @@ app.delete (  '/:bookID', isAuthenticated, ( req , res ) => {
         if ( err ) { 
           console.log( err ); 
         } 
-        res.redirect ( '/catalogue' );
+        res.redirect ( '/app/catalogue' );
         
         
     });

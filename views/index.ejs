@@ -12,13 +12,11 @@
     
     <h1>
         <% if(currentUser) { %>
-          Welcome <%=currentUser.username%>! </h1>
-
+          Welcome <%=currentUser.username%>! 
+    </h1>
           <main> 
 
             <div id="app-resources"> 
-
-              <h2> </h2>
 
               <a href="/app/home"> User home page </a>
 
@@ -32,18 +30,31 @@
 
             </div>
 
-          
-          
-
-          
           </main>
 
 
         <% } else { %>
-          <h2>Please </h2>
-          <a href="/users/new">Sign Up</a></h2>
-          <h3>or</h3>
-          <a href="/sessions/new">Log In</a>
+
+          <section class="entry-section"> 
+
+            <div class="container"> 
+          
+            <a href="/users/new">
+              <div class="entrybtn"> 
+                <p> Sign Up </p>
+              </div>
+            </a>
+
+            <h3>or</h3>
+
+            <a href="/sessions/new">
+              <div class="entrybtn"> 
+                <p> Log In </p>
+              </div>
+            </a>
+          </div>
+        </section>
+
         <% } %>
  
  

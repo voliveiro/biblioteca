@@ -13,7 +13,7 @@
     <h1> Editing "<%=book.title%>"</h1>
     <h2> ID: <%=bookID%> </h2>
 
-    <form  action="<%=bookID%>?_method=PUT" method="POST">
+    <form  action="/app/<%=bookID%>?_method=PUT" method="POST">
 
         <label for="notes"> Notes </label>
         <input type="text" name="notes" id="notes"/> 
