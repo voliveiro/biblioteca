@@ -3,6 +3,12 @@ body {
     background: #2B4162; 
 }
 
+.bodycontainer {
+    background: #2B4162; 
+    width: 90%; 
+    margin: 0 auto; 
+}
+
 a {
     text-decoration: none; 
 }
@@ -79,7 +85,7 @@ header h1 {
 
 
 main {
-    width: 100%; 
+    
     padding-left: 20px; 
     padding-bottom: 20px; 
     display: flex; 
@@ -284,13 +290,13 @@ form {
 
 .subnav {
     background: #758292; 
-    width: 100%; 
     height: 50px; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     padding-top: 20px; 
     padding-bottom: 10px; 
+    
 }
 
 @media screen and (min-width: 600px) {
@@ -312,6 +318,7 @@ form {
     width: 50%; 
     justify-content: center; 
     margin: 0 auto; 
+    
     
     
 }
@@ -358,6 +365,7 @@ form {
     background: #fefafe;
     width: 15%; 
     visibility: hidden; 
+    
 }
 
 @media screen and (min-width: 600px) {
@@ -366,6 +374,7 @@ form {
         display: flex; 
         align-items: center; 
         justify-content: center; 
+        
         
     }
 
@@ -378,7 +387,24 @@ form {
     font-family: 'Lato', sans-serif;
     font-size: 1rem; 
     cursor: pointer; 
-     
-   
     
+}
+.delete-book-div-mobile {
+    margin-top: 50px; 
+ 
+}
+
+@media screen and (min-width: 600px) {
+
+    .delete-book-div-mobile {
+        margin-top: 50px; 
+        visibility: hidden; 
+     
+    }
+}
+
+
+.delete-book-mobile {
+    padding-top: 10px; 
+    padding-bottom: 10px; 
 }
