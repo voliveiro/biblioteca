@@ -20,12 +20,21 @@
         <%Books.forEach(element => { %>
             <li class="catalogue-li"> 
                 <section class="book-info-section"> 
-                    <p class="li-elements"> <span> Author: </span><%=element.author%> </p>
+
+                    <div class="li-elements-wrapper" id="li-elements-author"> 
+                        <span class="catalogue-field"> Author: </span> <%=element.author%> 
+                    </div>
                     
-                    <p class="li-elements"><span> Title: </span> <%=element.title%> </p>
-                    </a> 
+                    <div class="li-elements-wrapper" id="li-elements-title"> 
+                        <div class="li-elements">
+                            <span class="catalogue-field"> Title: </span> 
+                            <a href="/app/catalogue/<%=element._id%>">              
+                                <%=element.title%> 
+                            </a> 
+                        <div> 
+                    </div>
                      
-                    <a href="/app/catalogue/<%=element._id%>"> See book</a>
+                     
                     
                 
                 </li> 

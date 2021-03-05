@@ -101,9 +101,6 @@ li {
     margin-top: -10px;  
 }
 
-.li-elements span {
-    font-weight: bold; 
-}
 
 .account-form {
     display: flex; 
@@ -177,12 +174,6 @@ form {
     font-size: 1.5rem; 
 }
 
-.catalogue-li {
-    border-bottom: 1px solid #2B4162; 
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-}
-
 /* Suggested Reading */ 
 .nytapi-div {
     border: 2px solid #5C6672; 
@@ -250,5 +241,41 @@ form {
 }
 
 .libopt p {
-    color: #fefafe
+    color: #fefafe;
+    font-size: 1.2rem; 
+}
+
+/* Catalogue */ 
+
+.catalogue-li {
+    border-bottom: 1px solid #2B4162; 
+    
+    padding-bottom: 10px; 
+    width: 80%; 
+    margin: 0 auto; 
+    
+    
+
+}
+
+.li-elements-wrapper {
+    margin-top: 20px; 
+    margin-bottom: 10px; 
+    
+}
+
+.li-elements {
+    display: flex; 
+    flex-direction: row; 
+}
+
+
+.li-elements-title {
+    display: flex; 
+    flex-direction: row; 
+}
+
+.catalogue-field {
+    font-weight: bold; 
+    margin-right: 10px; 
 }
