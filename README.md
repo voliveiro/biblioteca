@@ -26,8 +26,17 @@ I'd started by adopting a one-model approach that was seemingly simpler - just h
 | Index        | /             | GET       | Suggested Reads |
 | Index        | /app/home     | GET       | Main library page |
 | New          | /users/new    | GET       | form to add new user |
+| New          | /sessions/new | GET       | new session |
 | New          | /:id/add      | GET       | form to add new book |
-
+| Create       | /users        | POST      | Create new user |
+| Create       | /sessions     | POST      | Create new session |
+| Create       | /app/ho       | POST      | Create new book |
+| Show         | /app/catalogue| GET       | Show catalogue |
+| Show         | /app/catalogue/:id| GET   | Show each book |
+| Edit         | /app/:bookID  | GET       | Edit book notes form|
+| Update       | /app/:bookID  | PUT       | Update book notes |
+| Destroy      | /sessions     | DELETE    | End session |
+| Destroy      | /app/:bookID  | DELETE    | Delete book |
 
 
 
