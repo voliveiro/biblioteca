@@ -38,6 +38,11 @@ I'd started by adopting a one-model approach that was seemingly simpler - just h
 | Destroy      | /sessions     | DELETE    | End session |
 | Destroy      | /app/:bookID  | DELETE    | Delete book |
 
+### Further Development 
 
+I would like to add three additional features 
+- Manage user profile (e.g. change username, delete profile), 
+- Improve the Book Schema to allow users to connect books to other relevant books (possibly by adding a field with an array of linked bookIDs)
+- Ability to search the catalogue 
 
 
