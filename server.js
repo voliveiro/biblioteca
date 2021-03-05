@@ -32,7 +32,7 @@ app.use(session({
   }))
 
 app.use((req, res, next) => {
-    console.log('Middleware 2');
+    console.log('Middleware 2' );
     next();
 });
   
@@ -72,7 +72,8 @@ const isAuthenticated = (req, res, next) => {
 
 app.get('/', (req, res) => {
     res.render('index.ejs', {
-        currentUser: req.session.currentUser
+        currentUser: req.session.currentUser,
+        APIKEY : process.env.APIKEY, 
     })
 })
 
@@ -84,6 +85,7 @@ app.get('/app', isAuthenticated, (req, res)=>{
     }
 })
 
+
 app.listen(process.env.PORT, ()=>{
-    console.log('Listening');
+    console.log('Listening', process.env.APIKEY);
 });
