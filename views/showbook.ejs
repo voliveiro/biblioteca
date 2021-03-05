@@ -4,6 +4,8 @@
     <%-include('./partials/head.ejs') -%>
 </head>
 <body>
+
+    <div class="bodycontainer"> 
     
     <header> 
         <%-include('./partials/header.ejs') -%>
@@ -41,11 +43,18 @@
     
     
 
-    </main>
+    </main> 
+
+    <div class="delete-book-div-mobile" > 
+        <form action="/app/<%=book._id %>?_method=DELETE" method="POST"> 
+
+            <input class="delete-book delete-book-mobile" type="submit" value="Delete Book"/ > 
+        </form>
+    </div>
 
 
 
-    
+</div>
     
 </body>
 </html>
