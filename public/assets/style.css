@@ -417,6 +417,14 @@ form {
       
 }
 
+textarea {
+    padding-left: 10px; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem; 
+
+}
 .textarea {
     border: 1px solid #6C6F7F; 
     width: 90%; 
@@ -424,4 +432,16 @@ form {
     padding: 10px 10px 10px 10px; 
     white-space: pre-wrap; 
    
+}
+
+/* add book */ 
+
+.addbook-field {
+    margin-bottom: 10px; 
+    width: 90%; 
+    padding-left: 10px; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem; 
 }

@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%-include('./partials/head.ejs') -%>
 </head>
 <body>
+
+    <div class="bodycontainer"> 
     
+    <header> 
+        <%-include('./partials/header.ejs') -%>
+    </header>
+
+    <nav class="subnav">
+        <ul>
+           
+            <li class="subnav-li">
+                <a href="/app/catalogue"> Catalogue</a>
+            </li> 
+        
+        </ul>
+    
+      
+
+    </nav>
+    <main> 
     <h1> Adding to <%=user.username%>'s library</h1>
 
     <form action="/app/home" method="POST">
         
 
         <label for="title"> Title</label>
-        <input type="text" name="title" id="title"/> 
+        <input class="addbook-field" type="text" name="title" id="title"/> 
 
         <label for="author">Author </label>
-        <input type="text" name="author" id="author"/> 
+        <input class="addbook-field" type="text" name="author" id="author"/> 
         
         <label for="notes"> Notes </label>
-        <input type="text" name="notes" id="notes"/> 
+        <textarea class="addbook-field" type="text" name="notes" id="notes" rows="10">  </textarea>
 
         <input type="submit" value="Submit"> 
 
 
 
     </form>
+</main>
+<div> 
 </body>
 </html>
