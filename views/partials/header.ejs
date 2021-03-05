@@ -1,5 +1,10 @@
 <h1> bookworm </h1>
 <nav> 
-    <a class="navlinks" href="/app/home"> Library </a>
-    <a class="navlinks" href="/"> Lobby</a>
+    <a class="navlinks" href="/app/home"> My Library </a>
+    <a class="navlinks" href="/"> New Reads </a>
+    <div class="logout-div"> 
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Log Out" class=" navlinks logout" />
+        </form>
+    </div>
 </nav>
