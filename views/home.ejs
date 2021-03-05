@@ -8,14 +8,25 @@
   <header> 
     <%-include('./partials/header.ejs') -%>
   </header>
-    
-    
-    <h1> Welcome <%=currentUser.username%>! </h1>
-
+  
           <main> 
 
-           <a  href="/app/<%=currentUser._id%>/add/">Add a book</a> 
-           <a  href="/app/catalogue/">See catalogue</a>
+          <h1> <%=currentUser.username%>'s library </h1>
+
+          <div class="library-options-container"> 
+
+            <section class="library-options"> 
+
+              <a class="libopt" href="/app/<%=currentUser._id%>/add/"> 
+                <p> Add a book </p>
+              </a> 
+              
+              <a class="libopt" href="/app/catalogue/">
+                <p> See catalogue</p>
+              </a>
+
+            </section> 
+        </div>
             
           </main>
     
@@ -24,8 +35,6 @@
 
 
 
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Logout" class="form-btn"/>
-        </form>
+         
 </body>
 </html>
