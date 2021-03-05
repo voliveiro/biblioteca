@@ -35,7 +35,7 @@ header h1 {
     
 } 
 
-nav {
+.mainnav {
     display: flex; 
     justify-content: space-around;
     flex-direction: column; 
@@ -46,7 +46,7 @@ nav {
 
 @media screen and (min-width: 600px) {
     
-    nav {
+    .mainnav  {
         display: flex; 
         justify-content: space-between;
         flex-direction: row; 
@@ -275,7 +275,110 @@ form {
     flex-direction: row; 
 }
 
-.catalogue-field {
+.field {
     font-weight: bold; 
     margin-right: 10px; 
+}
+
+/* Show Pages */ 
+
+.subnav {
+    background: #758292; 
+    width: 100%; 
+    height: 50px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    padding-top: 20px; 
+    padding-bottom: 10px; 
+}
+
+@media screen and (min-width: 600px) {
+    .subnav {
+        background: #758292;  
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between;
+        padding-top: 0px;  
+        padding-bottom: 0px; 
+    
+
+    }
+}
+
+.subnav ul {
+    display: flex; 
+    flex-direction: column; 
+    width: 50%; 
+    justify-content: center; 
+    margin: 0 auto; 
+    
+    
+}
+
+@media screen and (min-width: 600px) {
+    .subnav ul {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        margin-left: -10px; 
+        width: 20%; 
+    }
+}
+
+.subnav-li {
+    display: flex; 
+    align-items: center; 
+ 
+    
+  
+
+}
+.subnav-li a {
+    color: #fefafe;
+    width: 50%; 
+    margin: 0 auto; 
+ 
+}
+
+@media screen and (min-width: 600px) {
+    .subnav-li a {
+        color: #fefafe;
+        width: 100%; 
+        margin-left: 0px; 
+        font-size: 1rem; 
+        padding-bottom: 10px; 
+       
+
+    }
+}
+
+.delete-book-div-desktop {
+    background: #fefafe;
+    width: 15%; 
+    visibility: hidden; 
+}
+
+@media screen and (min-width: 600px) {
+    .delete-book-div-desktop {
+        visibility: visible; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        
+    }
+
+   
+}
+.delete-book {
+    background:  #fefafe;
+    color: firebrick; 
+    border: none; 
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem; 
+    cursor: pointer; 
+     
+   
+    
 }

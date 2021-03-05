@@ -8,31 +8,40 @@
     <header> 
         <%-include('./partials/header.ejs') -%>
     </header>
-    <ul> 
-        <li> <%=book.author%> </li>
-        <li> <%=book.title%> </li>
-        <li> <%=book.notes%> </li>
-        <li class="bookidval"> <%=book._id%></li>
-    </ul>
+
+    <nav class="subnav">
+        <ul>
+            <li class="subnav-li"> 
+                <a href="/app/<%=book._id%>"> Edit Notes </a> 
+            </li>
+            <li class="subnav-li">
+                <a href="/app/catalogue"> Catalogue</a>
+            </li> 
+        
+        </ul>
+    
+        <div class="delete-book-div-desktop" > 
+            <form action="/app/<%=book._id %>?_method=DELETE" method="POST"> 
+    
+                <input class="delete-book" type="submit" value="Delete Book"/ > 
+            </form>
+        </div>
+
+    </nav>
+
+    <main> 
+        <ul> 
+            <li> <span class="field"> Author: </span> <%=book.author%> </li>
+            <li> <span class="field"> Title: </span>  <%=book.title%> </li>
+            <li> <span class="field"> Notes: </span> <%=book.notes%> </li>
+        
+        </ul>
 
     
     
-    <ul>
-        <li> 
-            <a href="/app/<%=book._id%>"> Edit book notes </a> 
-        </li>
-        <li>
-            <a href="/app/catalogue"> Return to user catalogue</a>
-        </li> 
     
-    </ul>
 
-    <div class="delete-btn"> 
-        <form action="/app/<%=book._id %>?_method=DELETE" method="POST"> 
-
-            <input type="submit" value="DELETE"/ > 
-        </form>
-    </div>
+    </main>
 
 
 
