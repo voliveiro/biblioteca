@@ -8,20 +8,56 @@
     <header> 
 
         <%-include('./partials/header.ejs') -%>
-    </header>
+    </header> 
+
+
+    <nav class="subnav">
+        <ul>
+            <li class="subnav-li"> 
+                <a href="/app/<%=book._id%>"> Edit Notes </a> 
+            </li>
+            <li class="subnav-li">
+                <a href="/app/catalogue"> Catalogue</a>
+            </li> 
+        
+        </ul>
     
-    <h1> Editing "<%=book.title%>"</h1>
-    <h2> ID: <%=bookID%> </h2>
+        <div class="delete-book-div-desktop" > 
+            <form action="/app/<%=book._id %>?_method=DELETE" method="POST"> 
+    
+                <input class="delete-book" type="submit" value="Delete Book"/ > 
+            </form>
+        </div>
 
-    <form  action="/app/<%=bookID%>?_method=PUT" method="POST">
+    </nav>
 
-        <label for="notes"> Notes </label>
-        <input type="text" name="notes" id="notes"/> 
+    <main> 
+    
+        <ul> 
+            <li> <span class="field"> Author: </span> <%=book.author%> </li>
+            <li> <span class="field"> Title: </span>  <%=book.title%> </li>
+             
+        
+        </ul>
 
-        <input type="submit" value="Submit"> 
+        <div class="edit-notes-area"> 
 
+            <form  action="/app/<%=bookID%>?_method=PUT" method="POST">
 
+                <label for="notes"> Edit Notes: </label>
 
-    </form>
+                <textarea type="text" name="notes" id="notes" rows="10"> <%=book.notes%></textarea>
+    
+                <input type="submit" value="Submit"> 
+    
+    
+            </form>
+
+        </div>
+     
+
+         
+
+    </main>
 </body>
 </html>

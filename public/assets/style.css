@@ -408,3 +408,20 @@ form {
     padding-top: 10px; 
     padding-bottom: 10px; 
 }
+
+/* Edit Page */ 
+
+.edit-notes-area {
+    width: 80%; 
+    margin-left: 40px; 
+      
+}
+
+.textarea {
+    border: 1px solid #6C6F7F; 
+    width: 90%; 
+    margin-top: 10px; 
+    padding: 10px 10px 10px 10px; 
+    white-space: pre-wrap; 
+   
+}
