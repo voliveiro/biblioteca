@@ -2,6 +2,10 @@ body {
     font-family: 'Lato', sans-serif;
     background: #2B4162; 
 }
+
+a {
+    text-decoration: none; 
+}
 header {
     background: #2B4162; 
     display: flex; 
@@ -120,11 +124,13 @@ form {
     margin-bottom: 30px; 
 }
 .form-btn {
-    width: 20%;
+    border-radius: 75px; 
+    width: 200px;
     margin-top: 10px; 
-    padding-top: 5px; 
-    padding-bottom: 5px;  
+    padding-top: 10px; 
+    padding-bottom: 10px;  
     font-family: 'Lato', sans-serif;
+    font-size: 1.2rem; 
     color: whitesmoke; 
     background: #2B4162; 
 }
@@ -144,7 +150,7 @@ form {
 }
 .entrybtn {
     width: 200px; 
-    border-radius: 5px; 
+    border-radius: 75px; 
     background: #2B4162; 
     display: flex;
     align-items: center; 
@@ -161,4 +167,33 @@ form {
     border-bottom: 1px solid #2B4162; 
     padding-top: 10px; 
     padding-bottom: 10px; 
+}
+
+.nytapi-div {
+    border: 2px solid #5C6672; 
+    padding: 5px 10px 10px 10px; 
+    width: 60%; 
+    margin: 0 auto; 
+    
+}
+
+@media screen and (min-width: 600px) {
+    .nytapi-lists {
+        display: flex; 
+        flex-direction: row; 
+    }
+}
+.bookcontainer {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    margin-top: 10px; 
+}
+
+.eachbookdiv2 {
+    margin-left: 20px; 
+}
+.bookimage {
+    height: 100px; 
+    width: 60px; 
 }
