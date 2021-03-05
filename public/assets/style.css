@@ -437,6 +437,7 @@ textarea {
 /* add book */ 
 
 .addbook-field {
+    margin-top: 5px; 
     margin-bottom: 10px; 
     width: 90%; 
     padding-left: 10px; 
