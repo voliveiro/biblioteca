@@ -129,12 +129,23 @@ form {
 }
 
 .validate {
-    width: 50%; 
+    width: 75%; 
     padding-top: 10px; 
     padding-bottom: 10px; 
     padding-left: 10px; 
     margin-top: 10px; 
     font-size: 1.2rem; 
+}
+
+@media screen and (min-width: 600px) {
+    .validate {
+        width: 50%; 
+        padding-top: 10px; 
+        padding-bottom: 10px; 
+        padding-left: 10px; 
+        margin-top: 10px; 
+        font-size: 1.2rem; 
+    }
 }
 
 #username {
