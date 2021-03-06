@@ -5,10 +5,18 @@ body {
 
 .bodycontainer {
     background: #2B4162; 
-    width: 90%; 
+    width: 100%; 
     margin: 0 auto; 
 }
 
+@media screen and (min-width: 600px) {
+    .bodycontainer {
+        background: #2B4162; 
+        width: 90%; 
+        margin: 0 auto; 
+    }
+
+}
 a {
     text-decoration: none; 
 }
