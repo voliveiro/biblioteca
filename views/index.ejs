@@ -17,6 +17,8 @@
       <h1>
           <% if(currentUser) { %>
             <%=currentUser.username%>'s Suggested Reads 
+
+            <p id="APIKEY"> <%=APIKEY%> </p>
       </h1>
           
            
@@ -61,18 +63,22 @@
         <% } %>
   
 
+        
 
 
     </div> 
   <script> 
    
   $(() => {
- 
+
+    const APIKEY = $('#APIKEY').text()
+
+    
     const h2 = $('<h2>').html("NYT Top Hard Cover Fiction")
     $('#fiction').append(h2)
 
     let promise = $.ajax({
-      url: "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=AEkLRlfzOlHMjU5FtqUiXX86gbGc8MjA"
+      url: `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${APIKEY}` 
       });
 
       promise.then (
@@ -120,7 +126,7 @@
   $('#nonfiction').append(h2b)
 
   promise = $.ajax({
-        url: "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=AEkLRlfzOlHMjU5FtqUiXX86gbGc8MjA"
+        url: `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=${APIKEY}`  
         });
 
         promise.then (
